@@ -1,15 +1,20 @@
 <template>
   <div>
-    <h2>Summary</h2>
-    <form @submit.prevent="savePersonalInfo">
-      <textarea type="text" v-model="summary" />
+    <h2>SUMMARY</h2>
+    <div class="line"></div>
 
-      <button type="submit">Save</button>
-    </form>
+    <textarea
+      class="summary-textarea"
+      type="text"
+      v-model="summary"
+      placeholder="Write a small summary!"
+      @input="savePersonalInfo"
+    />
   </div>
 </template>
 
 <script>
+import "../styles/summary.css";
 export default {
   data() {
     return {
