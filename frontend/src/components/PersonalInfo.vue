@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h2>PERSONAL INFORMATION</h2>
-    <div class="line"></div>
-    <form @submit.prevent="savePersonalInfo">
+    <div class="p-info-wrapper">
       <input
+        class="full-name"
         type="text"
         placeholder="Full name"
         v-model="fullName"
@@ -11,7 +10,16 @@
       />
 
       <input
+        class="position"
         type="text"
+        placeholder="Position"
+        v-model="position"
+        @input="addPosition"
+      />
+
+      <input
+        type="text"
+        class="p-info-inputs"
         placeholder="Email"
         v-model="email"
         @input="updateEmail"
@@ -19,6 +27,15 @@
 
       <input
         type="text"
+        class="p-info-inputs"
+        placeholder="Phone number"
+        v-model="phoneNumber"
+        @input="updatePhoneNumber"
+      />
+
+      <input
+        type="text"
+        class="p-info-inputs"
         placeholder="Address"
         v-model="address"
         @input="updateAddress"
@@ -26,32 +43,29 @@
 
       <input
         type="text"
-        placeholder="Phone number"
-        v-model="phoneNumber"
-        @input="updatePhoneNumber"
+        class="p-info-inputs"
+        placeholder="LinkedIn"
+        v-model="linkedIn"
+        @input="addLinkedIn"
       />
-      <!-- <button type="submit">Save</button> -->
-    </form>
+    </div>
   </div>
 </template>
 
 <script>
+import "../styles/personal-info.css";
 export default {
   data() {
     return {
+      position: "",
       fullName: "",
       email: "",
       address: "",
       phoneNumber: "",
+      linkedIn: "",
     };
   },
   methods: {
-    savePersonalInfo() {
-      console.log("Full Name:", this.fullName);
-      console.log("Email:", this.email);
-      console.log("Address:", this.address);
-      console.log("Phone number", this.phoneNumber);
-    },
     updateFullName() {
       console.log("Updating Full Name:", this.fullName);
     },
@@ -63,6 +77,12 @@ export default {
     },
     updatePhoneNumber() {
       console.log("Updating Phone Number:", this.phoneNumber);
+    },
+    addPosition() {
+      console.log("Updating position:", this.position);
+    },
+    addLinkedIn() {
+      console.log("Updating linkedin:", this.linkedIn);
     },
   },
 };

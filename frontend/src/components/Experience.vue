@@ -3,39 +3,55 @@
     <h2>EXPERIENCE</h2>
     <div class="line"></div>
 
-    <div v-for="(experience, index) in experiences" :key="index">
-      <input
-        type="text"
-        v-model="experience.jobTitle"
-        placeholder="Job Title"
-        @input="saveExperience"
-      />
+    <div
+      class="exp-wrapper"
+      v-for="(experience, index) in experiences"
+      :key="index"
+    >
+      <div class="job-info-wrapper">
+        <input
+          type="text"
+          class="job-title"
+          v-model="experience.jobTitle"
+          placeholder="Job Title"
+          @input="saveExperience"
+        />
 
-      <input
-        type="text"
-        v-model="experience.company"
-        placeholder="Company"
-        @input="saveExperience"
-      />
+        <input
+          type="text"
+          class="company"
+          v-model="experience.company"
+          placeholder="Company"
+          @input="saveExperience"
+        />
 
-      <input
-        type="text"
-        v-model="experience.location"
-        placeholder="Location"
-        @input="saveExperience"
-      />
+        <input
+          type="text"
+          v-model="experience.location"
+          placeholder="Location"
+          @input="saveExperience"
+        />
+        <label>From</label>
+        <input
+          type="date"
+          v-model="experience.startingYear"
+          @input="saveExperience"
+        />
 
-      <label>From</label>
-      <input
-        type="date"
-        v-model="experience.startingYear"
-        @input="saveExperience"
-      />
-      <label>To</label>
-      <input
-        type="date"
-        data-date-format="DD MMMM YYYY"
-        v-model="experience.endingYear"
+        <label>To </label>
+        <input
+          type="date"
+          v-model="experience.endingYear"
+          @input="saveExperience"
+        />
+      </div>
+
+      <textarea
+        class="wdud"
+        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+        type="text"
+        v-model="experience.whatYouDid"
+        placeholder="What did you do?"
         @input="saveExperience"
       />
 
@@ -49,6 +65,7 @@
 </template>
 
 <script>
+import "../styles/experience.css";
 export default {
   data() {
     return {
@@ -57,6 +74,7 @@ export default {
           jobTitle: "",
           location: "",
           company: "",
+          whatYouDid: "",
           startingYear: "",
           endingYear: "",
         },
@@ -72,6 +90,7 @@ export default {
         jobTitle: "",
         company: "",
         location: "",
+        whatYouDid: "",
         startingYear: "",
         endingYear: "",
       });

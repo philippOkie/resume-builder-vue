@@ -3,33 +3,42 @@
     <h2>EDUCATION</h2>
     <div class="line"></div>
 
-    <div v-for="(education, index) in educations" :key="index">
-      <input
-        type="text"
-        v-model="education.university"
-        placeholder="University"
-        @input="saveEducation"
-      />
+    <div
+      v-for="(education, index) in educations"
+      :key="index"
+      class="edu-wrapper"
+    >
+      <div>
+        <input
+          type="text"
+          v-model="education.university"
+          placeholder="University"
+          @input="saveEducation"
+        />
 
-      <input
-        type="text"
-        v-model="education.degree"
-        placeholder="Degree"
-        @input="saveEducation"
-      />
+        <input
+          type="text"
+          v-model="education.degree"
+          placeholder="Degree"
+          @input="saveEducation"
+        />
+      </div>
 
-      <label>From</label>
-      <input
-        type="date"
-        v-model="education.startingYear"
-        @input="saveEducation"
-      />
-      <label>To</label>
-      <input
-        type="date"
-        v-model="education.graduationYear"
-        input="saveEducation"
-      />
+      <div>
+        <label>From</label>
+        <input
+          type="date"
+          v-model="education.startingYear"
+          @input="saveEducation"
+        />
+
+        <label>></label>
+        <input
+          type="date"
+          v-model="education.graduationYear"
+          input="saveEducation"
+        />
+      </div>
 
       <div>
         <button @click="removeEducation(index)">Remove</button>
@@ -41,6 +50,7 @@
 </template>
 
 <script>
+import "../styles/education.css";
 export default {
   data() {
     return {

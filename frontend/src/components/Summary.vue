@@ -5,9 +5,10 @@
 
     <textarea
       class="summary-textarea"
+      oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
       type="text"
       v-model="summary"
-      placeholder="Write a small summary!"
+      placeholder="Write about yourself!"
       @input="savePersonalInfo"
     />
   </div>
