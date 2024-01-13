@@ -110,6 +110,8 @@ label {
 }
 
 nav {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   background-color: #fff;
   margin-left: 50px;
   min-height: 1123px;

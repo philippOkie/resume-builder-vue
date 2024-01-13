@@ -49,10 +49,9 @@ export default {
 
 <style scoped>
 button {
-  display: none; /* Initially hide the buttons */
+  display: none;
 }
 
-/* Show the buttons when hovering over the input */
 div:hover button {
   display: inline-block;
 }
