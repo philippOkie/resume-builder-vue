@@ -55,12 +55,12 @@ const exportToPDF = async () => {
         >
           Export to PDF(buggy)
         </button>
-        <button
+        <!-- <button
           type="submit"
           style="height: 100%; font-size: 1.5em; font-weight: 700"
         >
           Save
-        </button>
+        </button> -->
       </nav>
     </div>
   </form>
