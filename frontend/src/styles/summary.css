@@ -11,10 +11,10 @@
   border-radius: 8px;
   border: 1px solid #fff;
   background-color: #fff;
+  transition: 0.7s ease-in-out;
 }
 
 .summary-textarea:focus,
 .summary-textarea:hover {
-  transition: 0.7s;
   background-color: #e0e0e0;
 }

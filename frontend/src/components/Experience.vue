@@ -48,7 +48,6 @@
 
       <textarea
         class="wdud"
-        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
         type="text"
         v-model="experience.whatYouDid"
         placeholder="What did you do?"
