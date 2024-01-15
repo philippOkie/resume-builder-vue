@@ -83,10 +83,11 @@ export default {
 
 <style scoped>
 button {
-  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 div:hover button {
-  display: inline-block;
+  opacity: 1;
 }
 </style>
