@@ -1,10 +1,10 @@
 <script setup>
 import PersonalInfo from "./components/PersonalInfo.vue";
-import Education from "./components/Education.vue";
+import Educations from "./components/Educations.vue";
 import Summary from "./components/Summary.vue";
-import Experience from "./components/Experience.vue";
+import Experiences from "./components/Experiences.vue";
 import Skills from "./components/Skills.vue";
-import "./styles/style.css";
+import "./style.css";
 
 const submitForm = () => {
   console.log("Form data submitted!");
@@ -21,8 +21,8 @@ const exportToPDF = () => {
       <div class="container-main">
         <PersonalInfo />
         <Summary />
-        <Experience />
-        <Education />
+        <Experiences />
+        <Educations />
         <Skills />
       </div>
       <nav>
@@ -34,10 +34,14 @@ const exportToPDF = () => {
 </template>
 
 <style scoped>
+.wrapper {
+  margin-bottom: 20px;
+}
 .save-btn {
   height: 100%;
   font-size: 1.5em;
   font-weight: 700;
+  margin-bottom: 32px;
 }
 
 .container-main {
@@ -56,6 +60,10 @@ const exportToPDF = () => {
   box-shadow: rgba(45, 35, 66, 0.2) 0 20px 40px;
 }
 
+.container-main > button {
+  display: none;
+}
+
 @media print {
   @page {
     size: A4;
@@ -67,10 +75,18 @@ const exportToPDF = () => {
     padding: 0;
     visibility: hidden;
   }
+
+  .container-main {
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .container-main > button {
+    display: none;
+  }
+
   .container-main,
   .container-main * {
-    margin-top: 10px;
-    margin-bottom: 10px;
     visibility: visible;
   }
 }

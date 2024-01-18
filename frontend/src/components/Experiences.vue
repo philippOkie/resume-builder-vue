@@ -64,7 +64,6 @@
 </template>
 
 <script>
-import "../styles/experience.css";
 export default {
   data() {
     return {
@@ -105,6 +104,57 @@ export default {
 </script>
 
 <style scoped>
+.exp-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.job-title {
+  font-size: 1.3rem;
+
+  font-weight: bold;
+}
+
+.company {
+  font-size: 1.3rem;
+}
+
+.location {
+  color: transparent(0.5);
+}
+
+.wdud {
+  width: 300px;
+  padding: 10px;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: 0.7s ease-in-out;
+}
+
+.wdud:focus,
+.wdud:hover {
+  background-color: #e0e0e0;
+}
+
+.job-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 button {
   background-color: #f5f5f5;
 

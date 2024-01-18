@@ -82,6 +82,11 @@ export default {
 </script>
 
 <style scoped>
+.edu-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 button {
   opacity: 0;
   transition: opacity 1s ease-in-out;
