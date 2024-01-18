@@ -1,6 +1,7 @@
 <template>
   <div @mouseenter="setHover(true)" @mouseleave="setHover(false)">
     <h2>EDUCATION</h2>
+    <!-- TODO split education into another component -->
     <div class="line"></div>
 
     <div
@@ -50,7 +51,6 @@
 </template>
 
 <script>
-import "../styles/education.css";
 export default {
   data() {
     return {

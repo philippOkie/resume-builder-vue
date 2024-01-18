@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import "../styles/skills.css";
 export default {
   data() {
     return {
@@ -48,6 +47,14 @@ export default {
 </script>
 
 <style scoped>
+.skills-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
 button {
   opacity: 0;
   transition: opacity 1s ease-in-out;

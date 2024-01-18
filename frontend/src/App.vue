@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import PersonalInfo from "./components/PersonalInfo.vue";
 import Education from "./components/Education.vue";
 import Summary from "./components/Summary.vue";
@@ -7,41 +6,19 @@ import Experience from "./components/Experience.vue";
 import Skills from "./components/Skills.vue";
 import "./styles/style.css";
 
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
-
-const resumeContent = ref(null);
-
 const submitForm = () => {
   console.log("Form data submitted!");
 };
 
-const exportToPDF = async () => {
-  try {
-    const pdf = new jsPDF("p", "mm", "a3");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
-
-    const canvas = await html2canvas(resumeContent.value, {
-      scale: 2,
-      dpi: 1080,
-    });
-    const imgData = canvas.toDataURL("image/png");
-    const imgWidth = (canvas.width * pdfWidth) / canvas.width;
-    const imgHeight = (canvas.height * pdfHeight) / canvas.height;
-
-    pdf.addImage(imgData, "JPEG", 0, 0, imgWidth, imgHeight);
-    pdf.save("resume.pdf");
-  } catch (error) {
-    console.error("Error exporting to PDF:", error);
-  }
+const exportToPDF = () => {
+  print();
 };
 </script>
-
+<!-- TODO: Extract all unnecessary logic from App.vue to a separate view -->
 <template>
   <form @submit.prevent="submitForm">
-    <div class="wrapper">
-      <div class="container-main" ref="resumeContent">
+    <main class="wrapper">
+      <div class="container-main">
         <PersonalInfo />
         <Summary />
         <Experience />
@@ -49,19 +26,52 @@ const exportToPDF = async () => {
         <Skills />
       </div>
       <nav>
-        <button
-          style="height: 100%; font-size: 1.5em; font-weight: 700"
-          @click="exportToPDF"
-        >
-          Export to PDF(buggy)
-        </button>
-        <button
-          type="submit"
-          style="height: 100%; font-size: 1.5em; font-weight: 700"
-        >
-          Save
-        </button>
+        <button class="save-btn" @click="exportToPDF">Export to PDF</button>
+        <button class="save-btn" type="submit">Save</button>
       </nav>
-    </div>
+    </main>
   </form>
 </template>
+
+<style scoped>
+.save-btn {
+  height: 100%;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.container-main {
+  padding: 60px;
+  transition: 0.5s;
+  gap: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  min-height: 1123px;
+  width: 794px;
+  background-color: #fff;
+  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px;
+}
+
+.container-main:hover {
+  box-shadow: rgba(45, 35, 66, 0.2) 0 20px 40px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body * {
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+  }
+  .container-main,
+  .container-main * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    visibility: visible;
+  }
+}
+</style>

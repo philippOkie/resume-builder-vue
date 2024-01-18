@@ -106,6 +106,8 @@ export default {
 
 <style scoped>
 button {
+  background-color: #f5f5f5;
+
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }

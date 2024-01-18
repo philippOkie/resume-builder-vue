@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import "../styles/personal-info.css";
 export default {
   data() {
     return {
@@ -87,3 +86,26 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.full-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.position {
+  font-size: 1.7rem;
+}
+
+.p-info-inputs {
+  font-size: 1.2rem;
+}
+
+.p-info-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  grid-row-gap: 10px;
+}
+</style>
