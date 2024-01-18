@@ -4,17 +4,10 @@ import Educations from "./components/Educations.vue";
 import Summary from "./components/Summary.vue";
 import Experiences from "./components/Experiences.vue";
 import Skills from "./components/Skills.vue";
+import Menu from "./components/Menu.vue";
 import "./style.css";
-
-const submitForm = () => {
-  console.log("Form data submitted!");
-};
-
-const exportToPDF = () => {
-  print();
-};
 </script>
-<!-- TODO: Extract all unnecessary logic from App.vue to a separate view -->
+
 <template>
   <form @submit.prevent="submitForm">
     <main class="wrapper">
@@ -25,10 +18,7 @@ const exportToPDF = () => {
         <Educations />
         <Skills />
       </div>
-      <nav>
-        <button class="save-btn" @click="exportToPDF">Export to PDF</button>
-        <button class="save-btn" type="submit">Save</button>
-      </nav>
+      <Menu />
     </main>
   </form>
 </template>
@@ -37,13 +27,6 @@ const exportToPDF = () => {
 .wrapper {
   margin-bottom: 20px;
 }
-.save-btn {
-  height: 100%;
-  font-size: 1.5em;
-  font-weight: 700;
-  margin-bottom: 32px;
-}
-
 .container-main {
   padding: 60px;
   transition: 0.5s;
