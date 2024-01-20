@@ -2,15 +2,16 @@
   <div>
     <input
       type="text"
-      v-model="education.university"
-      placeholder="University"
+      v-model="education.degree"
+      class="degree"
+      placeholder="Degree"
       @input="saveEducation"
     />
 
     <input
       type="text"
-      v-model="education.degree"
-      placeholder="Degree"
+      v-model="education.university"
+      placeholder="University"
       @input="saveEducation"
     />
   </div>
@@ -54,6 +55,11 @@ export default {
 </script>
 
 <style scoped>
+.degree {
+  font-size: 1.3rem;
+
+  font-weight: bold;
+}
 @media print {
   button {
     display: none;
