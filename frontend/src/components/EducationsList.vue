@@ -1,5 +1,5 @@
 <template>
-  <div @mouseenter="setHover(true)" @mouseleave="setHover(false)">
+  <div>
     <h2>EDUCATION</h2>
     <!-- TODO split education into another component -->
     <div class="line"></div>
@@ -9,41 +9,12 @@
       :key="index"
       class="edu-wrapper"
     >
-      <div>
-        <input
-          type="text"
-          v-model="education.university"
-          placeholder="University"
-          @input="saveEducation"
-        />
-
-        <input
-          type="text"
-          v-model="education.degree"
-          placeholder="Degree"
-          @input="saveEducation"
-        />
-      </div>
-
-      <div>
-        <label>From</label>
-        <input
-          type="date"
-          v-model="education.startingYear"
-          @input="saveEducation"
-        />
-
-        <label>></label>
-        <input
-          type="date"
-          v-model="education.graduationYear"
-          input="saveEducation"
-        />
-      </div>
-
-      <div>
-        <button @click="removeEducation(index)">Remove</button>
-      </div>
+      <Edu
+        :education="education"
+        :index="index"
+        @remove="removeEducation"
+        @save="saveEducation"
+      />
     </div>
 
     <button @click="addEducation">Add Education</button>
@@ -51,6 +22,7 @@
 </template>
 
 <script>
+import Edu from "./Edu.vue";
 export default {
   data() {
     return {
@@ -74,10 +46,8 @@ export default {
     removeEducation(index) {
       this.educations.splice(index, 1);
     },
-    setHover(value) {
-      this.isHovered = value;
-    },
   },
+  components: { Edu },
 };
 </script>
 
@@ -94,5 +64,10 @@ button {
 
 div:hover button {
   opacity: 1;
+}
+@media print {
+  button {
+    display: none;
+  }
 }
 </style>

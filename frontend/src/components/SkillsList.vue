@@ -1,21 +1,10 @@
 <template>
-  <div @mouseenter="setHover(true)" @mouseleave="setHover(false)">
+  <div>
     <h2>SKILLS</h2>
     <div class="line"></div>
     <div class="skills-wrapper">
       <div v-for="(skill, index) in skills" :key="index">
-        <li>
-          <input
-            type="text"
-            v-model="skill.name"
-            placeholder="Add a skill!"
-            @input="saveSkills"
-          />
-
-          <div v-if="isHovered">
-            <button @click="removeSkill(index)">Remove</button>
-          </div>
-        </li>
+        <Skill :skill="skill" :index="index" @remove="removeSkill" />
       </div>
     </div>
     <button @click="addSkill">Add Skill</button>
@@ -23,7 +12,11 @@
 </template>
 
 <script>
+import Skill from "./Skill.vue";
 export default {
+  components: {
+    Skill,
+  },
   data() {
     return {
       skills: [{ name: "" }],
@@ -38,9 +31,6 @@ export default {
     },
     removeSkill(index) {
       this.skills.splice(index, 1);
-    },
-    setHover(value) {
-      this.isHovered = value;
     },
   },
 };
@@ -62,5 +52,10 @@ button {
 
 div:hover button {
   opacity: 1;
+}
+@media print {
+  button {
+    display: none;
+  }
 }
 </style>

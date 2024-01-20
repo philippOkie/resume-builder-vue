@@ -1,9 +1,9 @@
 <script setup>
 import PersonalInfo from "./components/PersonalInfo.vue";
-import Educations from "./components/Educations.vue";
 import Summary from "./components/Summary.vue";
-import Experiences from "./components/Experiences.vue";
-import Skills from "./components/Skills.vue";
+import EducationsList from "./components/EducationsList.vue";
+import ExperiencesList from "./components/ExperiencesList.vue";
+import SkillsList from "./components/SkillsList.vue";
 import Menu from "./components/Menu.vue";
 import "./style.css";
 </script>
@@ -14,9 +14,9 @@ import "./style.css";
       <div class="container-main">
         <PersonalInfo />
         <Summary />
-        <Experiences />
-        <Educations />
-        <Skills />
+        <ExperiencesList />
+        <EducationsList />
+        <SkillsList />
       </div>
       <Menu />
     </main>
@@ -55,12 +55,11 @@ import "./style.css";
 
   body * {
     margin: 0;
-    padding: 0;
+
     visibility: hidden;
   }
 
   .container-main {
-    padding: 0;
     box-shadow: none;
   }
 
@@ -70,6 +69,7 @@ import "./style.css";
 
   .container-main,
   .container-main * {
+    padding: 0;
     visibility: visible;
   }
 }
