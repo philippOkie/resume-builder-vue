@@ -105,10 +105,6 @@ export default {
   justify-content: space-between;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
 button {
   background-color: #f5f5f5;
 

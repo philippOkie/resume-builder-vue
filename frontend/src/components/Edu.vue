@@ -55,6 +55,17 @@ export default {
 </script>
 
 <style scoped>
+button {
+  background-color: #f5f5f5;
+
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+div:hover button {
+  opacity: 1;
+}
+
 .degree {
   font-size: 1.3rem;
 
