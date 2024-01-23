@@ -1,4 +1,9 @@
-<!-- TODO: Extract all unnecessary logic from App.vue to a separate view -->
+<template>
+  <nav>
+    <button class="save-btn" @click="exportToPDF">Export to PDF</button>
+    <button class="save-btn" @click="submitForm" type="submit">Save</button>
+  </nav>
+</template>
 
 <script setup>
 const submitForm = () => {
@@ -9,13 +14,6 @@ const exportToPDF = () => {
   print();
 };
 </script>
-
-<template>
-  <nav>
-    <button class="save-btn" @click="exportToPDF">Export to PDF</button>
-    <button class="save-btn" @click="submitForm" type="submit">Save</button>
-  </nav>
-</template>
 
 <style scoped>
 .save-btn {

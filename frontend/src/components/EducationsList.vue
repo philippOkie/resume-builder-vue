@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>EDUCATION</h2>
-    <!-- TODO split education into another component -->
     <div class="line"></div>
 
     <div
@@ -9,7 +8,7 @@
       :key="index"
       class="edu-wrapper"
     >
-      <Edu
+      <Education
         :education="education"
         :index="index"
         @remove="removeEducation"
@@ -22,7 +21,7 @@
 </template>
 
 <script>
-import Edu from "./Edu.vue";
+import Education from "./Education.vue";
 export default {
   data() {
     return {
@@ -47,7 +46,7 @@ export default {
       this.educations.splice(index, 1);
     },
   },
-  components: { Edu },
+  components: { Education },
 };
 </script>
 

@@ -1,13 +1,3 @@
-<script setup>
-import PersonalInfo from "./components/PersonalInfo.vue";
-import Summary from "./components/Summary.vue";
-import EducationsList from "./components/EducationsList.vue";
-import ExperiencesList from "./components/ExperiencesList.vue";
-import SkillsList from "./components/SkillsList.vue";
-import Menu from "./components/Menu.vue";
-import "./style.css";
-</script>
-
 <template>
   <form @submit.prevent="submitForm">
     <main class="wrapper">
@@ -22,6 +12,16 @@ import "./style.css";
     </main>
   </form>
 </template>
+
+<script setup>
+import PersonalInfo from "./components/PersonalInfo.vue";
+import Summary from "./components/Summary.vue";
+import EducationsList from "./components/EducationsList.vue";
+import ExperiencesList from "./components/ExperiencesList.vue";
+import SkillsList from "./components/SkillsList.vue";
+import Menu from "./components/Menu.vue";
+import "./style.css";
+</script>
 
 <style scoped>
 .wrapper {

@@ -8,7 +8,11 @@
       v-for="(experience, index) in experiences"
       :key="index"
     >
-      <Exp :experience="experience" @remove="removeExperience" :index="index" />
+      <Experience
+        :experience="experience"
+        @remove="removeExperience"
+        :index="index"
+      />
     </div>
 
     <button @click="addExperience">Add Experience</button>
@@ -16,7 +20,7 @@
 </template>
 
 <script>
-import Exp from "./Exp.vue";
+import Experience from "./Experience.vue";
 export default {
   data() {
     return {
@@ -50,7 +54,7 @@ export default {
       this.experiences.splice(index, 1);
     },
   },
-  components: { Exp },
+  components: { Experience },
 };
 </script>
 
