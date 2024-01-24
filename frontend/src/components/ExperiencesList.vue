@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h2>EXPERIENCE</h2>
-    <div class="line"></div>
-
     <div
       class="exp-wrapper"
       v-for="(experience, index) in experiences"

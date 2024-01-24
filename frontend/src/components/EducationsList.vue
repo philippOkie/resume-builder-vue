@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h2>EDUCATION</h2>
-    <div class="line"></div>
-
     <div
       v-for="(education, index) in educations"
       :key="index"

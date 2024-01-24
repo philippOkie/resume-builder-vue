@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h2>SKILLS</h2>
-    <div class="line"></div>
     <div class="skills-wrapper">
       <div v-for="(skill, index) in skills" :key="index">
         <Skill :skill="skill" :index="index" @remove="removeSkill" />

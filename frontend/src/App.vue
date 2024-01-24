@@ -3,10 +3,46 @@
     <main class="wrapper">
       <div class="container-main">
         <PersonalInfo />
-        <Summary />
-        <ExperiencesList />
-        <EducationsList />
-        <SkillsList />
+
+        <Wrapper>
+          <template v-slot:title>
+            {{ titles.summary }}
+          </template>
+          <template v-slot:line>
+            <div class="line"></div>
+          </template>
+          <template v-slot:component> <Summary /> </template>
+        </Wrapper>
+
+        <Wrapper>
+          <template v-slot:title>
+            {{ titles.experience }}
+          </template>
+          <template v-slot:line>
+            <div class="line"></div>
+          </template>
+          <template v-slot:component> <ExperiencesList /></template>
+        </Wrapper>
+
+        <Wrapper>
+          <template v-slot:title>
+            {{ titles.educations }}
+          </template>
+          <template v-slot:line>
+            <div class="line"></div>
+          </template>
+          <template v-slot:component> <EducationsList /></template>
+        </Wrapper>
+
+        <Wrapper>
+          <template v-slot:title>
+            {{ titles.skills }}
+          </template>
+          <template v-slot:line>
+            <div class="line"></div>
+          </template>
+          <template v-slot:component> <SkillsList /></template>
+        </Wrapper>
       </div>
       <Menu />
     </main>
@@ -14,12 +50,19 @@
 </template>
 
 <script setup>
+const titles = {
+  skills: "SKILLS",
+  educations: "EDUCATIONS",
+  experience: "EXPERIENCE",
+  summary: "SUMMARY",
+};
 import PersonalInfo from "./components/PersonalInfo.vue";
 import Summary from "./components/Summary.vue";
 import EducationsList from "./components/EducationsList.vue";
 import ExperiencesList from "./components/ExperiencesList.vue";
 import SkillsList from "./components/SkillsList.vue";
 import Menu from "./components/Menu.vue";
+import Wrapper from "./components/Wrapper.vue";
 import "./style.css";
 </script>
 

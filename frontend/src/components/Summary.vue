@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h2>SUMMARY</h2>
-    <div class="line"></div>
-
     <textarea
       class="summary-textarea"
       oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
