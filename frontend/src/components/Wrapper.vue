@@ -6,22 +6,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: String,
-  },
-  components: {},
-};
-</script>
-
 <style scoped>
-.line {
-  width: 774px;
-  border-bottom: 2px solid #161a30;
-  margin-bottom: 8px;
-}
-
 h2 {
   color: #161a30;
   font-size: 1.5rem;
