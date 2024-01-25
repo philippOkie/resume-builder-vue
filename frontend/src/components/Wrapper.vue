@@ -1,10 +1,23 @@
 <template>
   <div>
-    <h2><slot name="title"></slot></h2>
-    <slot name="line"></slot>
+    <h2>
+      <slot name="title">{{ title }}</slot>
+    </h2>
+    <div class="line"></div>
     <slot name="component"></slot>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: "",
+    },
+  },
+};
+</script>
 
 <style scoped>
 h2 {

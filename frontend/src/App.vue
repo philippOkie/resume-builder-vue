@@ -2,45 +2,22 @@
   <form @submit.prevent="submitForm">
     <main class="wrapper">
       <div class="container-main">
-        <Wrapper>
-          <template v-slot:component> <PersonalInfo /> </template>
+        <PersonalInfo />
+
+        <Wrapper title="SUMMARY">
+          <template v-slot:component> <Summary /></template>
         </Wrapper>
 
-        <Wrapper>
-          <template v-slot:title>
-            {{ titles.summary }}
-          </template>
-
-          <template v-slot:line> <div class="line"></div></template>
-
-          <template v-slot:component> <Summary /> </template>
-        </Wrapper>
-
-        <Wrapper>
-          <template v-slot:title>
-            {{ titles.experience }}
-          </template>
-          <template v-slot:line> <div class="line"></div></template>
-
+        <Wrapper title="EXPERIENCE">
           <template v-slot:component> <ExperiencesList /></template>
         </Wrapper>
 
-        <Wrapper>
-          <template v-slot:title>
-            {{ titles.educations }}
-          </template>
-          <template v-slot:line> <div class="line"></div></template>
-
-          <template v-slot:component> <EducationsList /></template>
+        <Wrapper title="EDUCATIONS">
+          <template v-slot:component><EducationsList /></template>
         </Wrapper>
 
-        <Wrapper>
-          <template v-slot:title>
-            {{ titles.skills }}
-          </template>
-          <template v-slot:line> <div class="line"></div></template>
-
-          <template v-slot:component> <SkillsList /></template>
+        <Wrapper title="SKILLS">
+          <template v-slot:component><SkillsList /></template>
         </Wrapper>
       </div>
       <Menu />
@@ -57,14 +34,6 @@ import SkillsList from "./components/SkillsList.vue";
 import Menu from "./components/Menu.vue";
 import Wrapper from "./components/Wrapper.vue";
 import "./style.css";
-
-const titles = {
-  skills: "SKILLS",
-  educations: "EDUCATIONS",
-  experience: "EXPERIENCE",
-  summary: "SUMMARY",
-  personalInfo: "PERSONAL INFO",
-};
 </script>
 
 <style scoped>
