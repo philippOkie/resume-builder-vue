@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>
-      <slot name="title">{{ title }}</slot>
+      {{ title }}
     </h2>
     <div class="line"></div>
     <slot name="component"></slot>
