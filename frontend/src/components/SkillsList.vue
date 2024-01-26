@@ -1,21 +1,8 @@
 <template>
-  <div @mouseenter="setHover(true)" @mouseleave="setHover(false)">
-    <h2>SKILLS</h2>
-    <div class="line"></div>
+  <div>
     <div class="skills-wrapper">
       <div v-for="(skill, index) in skills" :key="index">
-        <li>
-          <input
-            type="text"
-            v-model="skill.name"
-            placeholder="Add a skill!"
-            @input="saveSkills"
-          />
-
-          <div v-if="isHovered">
-            <button @click="removeSkill(index)">Remove</button>
-          </div>
-        </li>
+        <Skill :skill="skill" :index="index" @remove="removeSkill" />
       </div>
     </div>
     <button @click="addSkill">Add Skill</button>
@@ -23,8 +10,11 @@
 </template>
 
 <script>
-import "../styles/skills.css";
+import Skill from "./Skill.vue";
 export default {
+  components: {
+    Skill,
+  },
   data() {
     return {
       skills: [{ name: "" }],
@@ -40,14 +30,19 @@ export default {
     removeSkill(index) {
       this.skills.splice(index, 1);
     },
-    setHover(value) {
-      this.isHovered = value;
-    },
   },
 };
 </script>
 
 <style scoped>
+.skills-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
 button {
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -55,5 +50,10 @@ button {
 
 div:hover button {
   opacity: 1;
+}
+@media print {
+  button {
+    display: none;
+  }
 }
 </style>

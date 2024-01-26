@@ -1,81 +1,54 @@
 <template>
-  <div @mouseenter="setHover(true)" @mouseleave="setHover(false)">
-    <h2>EDUCATION</h2>
-    <div class="line"></div>
+  <div>
+    <input
+      type="text"
+      v-model="education.degree"
+      class="degree"
+      placeholder="Degree"
+      @input="saveEducation"
+    />
 
-    <div
-      v-for="(education, index) in educations"
-      :key="index"
-      class="edu-wrapper"
-    >
-      <div>
-        <input
-          type="text"
-          v-model="education.university"
-          placeholder="University"
-          @input="saveEducation"
-        />
+    <input
+      type="text"
+      v-model="education.university"
+      placeholder="University"
+      @input="saveEducation"
+    />
+  </div>
 
-        <input
-          type="text"
-          v-model="education.degree"
-          placeholder="Degree"
-          @input="saveEducation"
-        />
-      </div>
+  <div>
+    <label>From</label>
+    <input
+      type="date"
+      v-model="education.startingYear"
+      @input="saveEducation"
+    />
 
-      <div>
-        <label>From</label>
-        <input
-          type="date"
-          v-model="education.startingYear"
-          @input="saveEducation"
-        />
+    <label>></label>
+    <input
+      type="date"
+      v-model="education.graduationYear"
+      @input="saveEducation"
+    />
+  </div>
 
-        <label>></label>
-        <input
-          type="date"
-          v-model="education.graduationYear"
-          input="saveEducation"
-        />
-      </div>
-
-      <div>
-        <button @click="removeEducation(index)">Remove</button>
-      </div>
-    </div>
-
-    <button @click="addEducation">Add Education</button>
+  <div>
+    <button @click="removeEducation">Remove</button>
   </div>
 </template>
 
 <script>
-import "../styles/education.css";
 export default {
-  data() {
-    return {
-      educations: [
-        { university: "", degree: "", startingYear: "", graduationYear: "" },
-      ],
-    };
+  props: {
+    education: Object,
+    index: Number,
   },
   methods: {
     saveEducation() {
-      console.log("Educations:", this.educations);
+      this.$emit("save", this.index, this.edu);
     },
-    addEducation() {
-      this.educations.push({
-        university: "",
-        degree: "",
-        startingYear: "",
-        graduationYear: "",
-      });
-    },
-    removeEducation(index) {
-      this.educations.splice(index, 1);
-    },
-    setHover(value) {
-      this.isHovered = value;
+    removeEducation() {
+      this.$emit("remove", this.index);
     },
   },
 };
@@ -83,11 +56,23 @@ export default {
 
 <style scoped>
 button {
+  background-color: #f5f5f5;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 
 div:hover button {
   opacity: 1;
+}
+
+.degree {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+@media print {
+  button {
+    display: none;
+  }
 }
 </style>
