@@ -4,21 +4,13 @@
       <div class="container-main">
         <PersonalInfo />
 
-        <Wrapper title="SUMMARY">
-          <template v-slot:component> <Summary /></template>
-        </Wrapper>
+        <Wrapper title="SUMMARY"> <Summary /> </Wrapper>
 
-        <Wrapper title="EXPERIENCE">
-          <template v-slot:component> <ExperiencesList /></template>
-        </Wrapper>
+        <Wrapper title="EXPERIENCE"> <ExperiencesList /> </Wrapper>
 
-        <Wrapper title="EDUCATIONS">
-          <template v-slot:component><EducationsList /></template>
-        </Wrapper>
+        <Wrapper title="EDUCATIONS"> <EducationsList /> </Wrapper>
 
-        <Wrapper title="SKILLS">
-          <template v-slot:component><SkillsList /></template>
-        </Wrapper>
+        <Wrapper title="SKILLS"> <SkillsList /> </Wrapper>
       </div>
       <Menu />
     </main>

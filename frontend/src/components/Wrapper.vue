@@ -4,7 +4,7 @@
       {{ title }}
     </h2>
     <div class="line"></div>
-    <slot name="component"></slot>
+    <slot></slot>
   </div>
 </template>
 
