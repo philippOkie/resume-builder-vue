@@ -1,5 +1,7 @@
 # Vue.js and Node.js Full Stack Application
+![FireShot Capture 001 - Resume Manager - localhost](https://github.com/philippOkie/resume-builder-vue/assets/112265779/a777ce25-8497-43e6-8c98-39f3347ecbfb)
 
+Link to the project -> https://65b812eb1e675b4ebb7ef0d2--lustrous-gumption-a5a1fd.netlify.app/
 This is a full-stack application built with Vue.js for the frontend and Node.js (Express) for the backend. The backend is connected to MongoDB using Mongoose.
 
 ## Prerequisites
