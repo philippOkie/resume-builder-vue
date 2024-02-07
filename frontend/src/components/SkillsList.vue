@@ -39,12 +39,12 @@ export default {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
 button {
   opacity: 0;
+  margin-top: 15px;
   transition: opacity 1s ease-in-out;
 }
 
